@@ -10,9 +10,25 @@ on [this Godot proposal](https://github.com/godotengine/godot-proposals/issues/3
 * Install it from the Asset lib or unzip the release into your Godot project
 * Enable the plugin
 
-It will show an anchor icon in the top right corner of the editor viewport. Clicking on it will reveal
-the anchor settings panel. See the [Godot proposal](https://github.com/godotengine/godot-proposals/issues/3559)
+It will show an anchor icon in the top right corner of the editor viewport. 
+
+![Anchor icon in the editor viewport](docs/img/image_125.png)
+
+Clicking on it will reveal the epic anchor widget.
+
+![Widget in complete display](docs/img/image_130.png)
+
+See the [Godot proposal](https://github.com/godotengine/godot-proposals/issues/3559)
 for details on how to use it.
+
+For example, clicking the outer border will make your control use the complete
+available space:
+
+![Selecting full rect](docs/img/image_127.png)
+
+Selecting the middle line will arrange it in the center of the screen:
+
+![Selecting the center screen](docs/img/image_126.png)
 
 ## Contributors
 
