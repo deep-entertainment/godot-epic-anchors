@@ -1,0 +1,7 @@
+/.gitattributes             export-ignore
+/.github                    export-ignore
+/.asset-template.json.hb    export-ignore
+/docs                       export-ignore
+/CHANGELOG.md               export-ignore
+/README.md                  export-ignore
+/LICENSE.md                 export-ignore
