@@ -12,6 +12,7 @@ func get_plugin_name() -> String:
 func _enter_tree():
 	anchors_instance = preload("res://addons/epic-anchors/AnchorsPanel/Anchors.tscn").instance()
 	anchors_instance.interface = get_editor_interface()
+	anchors_instance.undo_redo = get_undo_redo()
 	connect("main_screen_changed", anchors_instance, "on_main_screen_changed")
 	
 func _process(delta: float) -> void:
