@@ -8,6 +8,6 @@
   "download_provider": "GitHub",
   "download_commit": "{{ env.GITHUB_SHA }}",
   "browse_url": "{{ context.repository.html_url }}",
-  "issues_url": "https://github.com/deep-entertainment/issues/issues/issues",
+  "issues_url": "https://github.com/deep-entertainment/issues/issues",
   "icon_url": "https://raw.githubusercontent.com/deep-entertainment/godot-epic-anchors/main/docs/img/icon.png"
 }
