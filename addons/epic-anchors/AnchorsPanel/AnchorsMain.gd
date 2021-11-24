@@ -14,13 +14,29 @@ onready var anchor_button : TextureButton = $ButtonPanel/AnchorButton
 
 var toggled : bool = true
 var modifier : = false
-
+	
 func _ready() -> void:
+	setup_project_setting_variables()
 	interface.get_selection().connect("selection_changed", self, "on_selection_changed")
 	interface.get_editor_settings().connect("settings_changed", self, "on_settings_changed")
 	on_settings_changed() # Update
 	panel.hide()
 	hide()
+
+
+func setup_project_setting_variables() -> void:
+	if ProjectSettings.has_setting("global/use_editor_theme_color"):
+		use_editor_theme_color = ProjectSettings.get_setting("global/use_editor_theme_color")
+	else:
+		ProjectSettings.set_initial_value("global/use_editor_theme_color", use_editor_theme_color)
+		ProjectSettings.set_setting("global/use_editor_theme_color", use_editor_theme_color)
+	
+	if ProjectSettings.has_setting("global/custom_hover_color"):
+		custom_hover_color = ProjectSettings.get_setting("global/custom_hover_color")
+	else:
+		ProjectSettings.set_initial_value("global/custom_hover_color", custom_hover_color)
+		ProjectSettings.set_setting("global/custom_hover_color", custom_hover_color)
+	
 
 
 func _input(event: InputEvent) -> void:
