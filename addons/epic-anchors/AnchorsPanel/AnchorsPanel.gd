@@ -1,13 +1,13 @@
 tool
 extends Panel
 
-export(Color) var hover_col
 export(Color) var normal_col
 export(Color) var text_normal_col
 export(Color) var hover_highlight_col
 
 var layout_strings : Array = ["Top left", "Top right", "Bottom left", "Bottom right", "Center left", "Center top", "Center right", "Center bottom", "Center", "Left wide", "Top wide", "Right wide", "Bottom wide", "VCenter wide", "HCenter wide", "Full rect"]
 
+var hover_col := Color("f63c3c")
 var curr_anchor : int = -1
 var layout_preset_mode_selected : int = 3
 

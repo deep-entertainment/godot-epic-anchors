@@ -1,20 +1,42 @@
 tool
 extends Control
 
+export var use_editor_theme_color : bool = true
+export var custom_hover_color := Color("f63c3c")
+
 var interface : EditorInterface
 var undo_redo : UndoRedo
 
 var selected_nodes : = []
 
 onready var panel : Panel = $Panel
+onready var anchor_button : TextureButton = $ButtonPanel/AnchorButton
 
 var toggled : bool = true
 var modifier : = false
-
+	
 func _ready() -> void:
+	setup_project_setting_variables()
 	interface.get_selection().connect("selection_changed", self, "on_selection_changed")
+	interface.get_editor_settings().connect("settings_changed", self, "on_settings_changed")
+	on_settings_changed() # Update
 	panel.hide()
 	hide()
+
+
+func setup_project_setting_variables() -> void:
+	if ProjectSettings.has_setting("global/use_editor_theme_color"):
+		use_editor_theme_color = ProjectSettings.get_setting("global/use_editor_theme_color")
+	else:
+		ProjectSettings.set_initial_value("global/use_editor_theme_color", use_editor_theme_color)
+		ProjectSettings.set_setting("global/use_editor_theme_color", use_editor_theme_color)
+	
+	if ProjectSettings.has_setting("global/custom_hover_color"):
+		custom_hover_color = ProjectSettings.get_setting("global/custom_hover_color")
+	else:
+		ProjectSettings.set_initial_value("global/custom_hover_color", custom_hover_color)
+		ProjectSettings.set_setting("global/custom_hover_color", custom_hover_color)
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -67,3 +89,12 @@ func on_selection_changed() -> void:
 			hide()
 	else:
 		hide()
+
+
+func on_settings_changed() -> void:
+	var settings = interface.get_editor_settings()
+	
+	var editor_accent_color = settings.get_setting("interface/theme/accent_color")
+	var hover_color = editor_accent_color if use_editor_theme_color else custom_hover_color
+	panel.hover_col = hover_color
+	anchor_button.hover_col = hover_color
