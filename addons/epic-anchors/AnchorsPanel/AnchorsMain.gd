@@ -28,14 +28,14 @@ func setup_project_setting_variables() -> void:
 	if ProjectSettings.has_setting("global/use_editor_theme_color"):
 		use_editor_theme_color = ProjectSettings.get_setting("global/use_editor_theme_color")
 	else:
-		ProjectSettings.set_initial_value("global/use_editor_theme_color", use_editor_theme_color)
 		ProjectSettings.set_setting("global/use_editor_theme_color", use_editor_theme_color)
+		ProjectSettings.set_initial_value("global/use_editor_theme_color", use_editor_theme_color)
 	
 	if ProjectSettings.has_setting("global/custom_hover_color"):
 		custom_hover_color = ProjectSettings.get_setting("global/custom_hover_color")
 	else:
-		ProjectSettings.set_initial_value("global/custom_hover_color", custom_hover_color)
 		ProjectSettings.set_setting("global/custom_hover_color", custom_hover_color)
+		ProjectSettings.set_initial_value("global/custom_hover_color", custom_hover_color)
 	
 
 
